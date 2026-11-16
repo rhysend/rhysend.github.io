@@ -1,0 +1,17 @@
+---
+layout: default
+section: projects
+title: Projects
+description: "Read about the work Rhysend Digital has done with clients."
+---
+<h1 data-i18n="navProjects">Projects</h1>
+{% if site.projects.size > 0 %}
+  {% assign projects = site.projects | sort: 'date' | reverse %}
+  <ul class="entries">
+    {% for entry in projects %}
+      {% include entry-card.html entry=entry index=forloop.index %}
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="listing-empty" data-i18n="projectsEmpty">No project write-ups have been published yet.</p>
+{% endif %}

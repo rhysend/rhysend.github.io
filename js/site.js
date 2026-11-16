@@ -1,4 +1,4 @@
-import { facts, partners, text } from "./content.js?v=16";
+import { facts, partners, text } from "./content.js?v=20";
 
 const LANGS = ["en", "zh-Hant", "zh-Hans"];
 const LANG_KEY = "rhysend-lang";
@@ -53,7 +53,7 @@ const paintFacts = (d) => {
 
 const apply = (language) => {
   const d = text[language];
-  document.documentElement.lang = language;
+  document.documentElement.lang = language === "zh-Hant" ? "zh-Hant-HK" : language;
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const value = d[el.dataset.i18n];
     if (value != null) el.textContent = value;
@@ -66,9 +66,16 @@ const apply = (language) => {
     if (value) el.setAttribute("aria-label", value);
   });
   const page = document.body.dataset.page;
-  if (d.tabTitle) document.title = d.tabTitle;
+  if (page === "blog" || page === "projects") {
+    if (!document.querySelector(".entry")) {
+      const title = page === "blog" ? d.navBlog : d.navProjects;
+      document.title = `${title} | ${d.tabTitle}`;
+    }
+  } else if (d.tabTitle) {
+    document.title = d.tabTitle;
+  }
   const description = document.querySelector('meta[name="description"]');
-  if (description && d.descriptions?.[page]) description.setAttribute("content", d.descriptions[page]);
+  if (description && !document.querySelector(".entry") && d.descriptions?.[page]) description.setAttribute("content", d.descriptions[page]);
   document.querySelectorAll(".logo").forEach((img) => {
     if (d.logoAlt) img.alt = d.logoAlt;
   });
@@ -144,17 +151,40 @@ const bindPartner = () => {
         img.hidden = false;
       });
       img.addEventListener("error", () => item.remove());
-      img.src = partner.src;
+      img.src = `${document.body.dataset.baseurl || ""}/${partner.src}`;
       item.append(img);
       list.append(item);
     }
   });
 };
 
+const bindArticleFilter = () => {
+  const control = document.querySelector("[data-filter-control]");
+  const list = document.querySelector("#article-list");
+  if (!control || !list) return;
+
+  const select = control.querySelector("select");
+  const cards = list.querySelectorAll("[data-article-type]");
+  const empty = document.querySelector("[data-filter-empty]");
+  const filter = () => {
+    let hasResults = false;
+    for (const card of cards) {
+      card.hidden = select.value !== "all" && card.dataset.articleType !== select.value;
+      if (!card.hidden) hasResults = true;
+    }
+    empty.hidden = hasResults || cards.length === 0;
+  };
+
+  select.addEventListener("change", filter);
+  filter();
+  control.hidden = false;
+};
+
 apply(currentLang());
 restoreDraft();
 bindForms();
 bindPartner();
+bindArticleFilter();
 
 document.querySelectorAll("[data-lang]").forEach((btn) => {
   btn.addEventListener("click", () => apply(btn.dataset.lang));

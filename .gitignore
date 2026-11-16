@@ -3,3 +3,13 @@ __pycache__/
 *.pyc
 Thumbs.db
 .DS_Store
+
+/_site/
+/.jekyll-cache/
+/.jekyll-metadata
+/.sass-cache/
+/.bundle/
+/vendor/
+/_drafts/
+/.env
+/.env.*

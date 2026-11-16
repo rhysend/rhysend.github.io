@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{% if page.section == 'blog' %}
+  {% assign back_url = '/blog/' %}
+  {% assign back_key = 'backBlog' %}
+  {% assign back_label = 'Back to Blog' %}
+  {% include article-type.html value=page.article_type %}
+{% else %}
+  {% assign back_url = '/projects/' %}
+  {% assign back_key = 'backProjects' %}
+  {% assign back_label = 'Back to Projects' %}
+{% endif %}
+<a class="entry-back" href="{{ back_url | relative_url }}" data-i18n="{{ back_key }}">{{ back_label }}</a>
+<article class="entry">
+  {% if page.section == 'blog' %}
+    <p class="entry-meta">
+      <span data-i18n="{{ category.key }}">{{ category.label }}</span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+    </p>
+  {% endif %}
+  <div lang="{{ page.lang | escape }}">
+    <h1>{{ page.title | escape }}</h1>
+    <div class="entry-body">{{ content }}</div>
+  </div>
+</article>

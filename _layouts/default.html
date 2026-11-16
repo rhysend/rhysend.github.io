@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title | escape }} | {% endif %}Rhysend Digital</title>
+  <meta name="description" content="{{ page.summary | default: page.description | escape }}">
+  <link rel="icon" href="{{ '/images/rhysend-logo.svg' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+SC:wght@400;600&family=IBM+Plex+Sans+TC:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/css/site.css' | relative_url }}?v=18">
+</head>
+<body data-page="{{ page.section | escape }}" data-baseurl="{{ site.baseurl | escape }}">
+  <a class="skip" href="#main" data-i18n="skip">Skip to main content</a>
+  {% include header.html %}
+  <main class="wrap" id="main" tabindex="-1">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <script type="module" src="{{ '/js/site.js' | relative_url }}?v=20"></script>
+</body>
+</html>

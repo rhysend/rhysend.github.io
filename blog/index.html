@@ -1,0 +1,26 @@
+---
+layout: default
+section: blog
+title: Blog
+description: "Technical articles, tutorials and updates from Rhysend Digital."
+---
+<div class="listing-heading">
+  <h1 data-i18n="navBlog">Blog</h1>
+  <div class="article-filter" data-filter-control hidden>
+    <label for="article-type" data-i18n="articleType">Article type</label>
+    <select id="article-type" aria-controls="article-list">
+      {% for type in site.data.article_types %}
+        <option value="{{ type.id }}" data-i18n="{{ type.key }}">{{ type.label }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+  <ul class="entries" id="article-list">
+    {% for entry in site.posts %}
+      {% include entry-card.html entry=entry index=forloop.index blog=true %}
+    {% endfor %}
+  </ul>
+  <p class="listing-empty" data-filter-empty data-i18n="filterEmpty" role="status" hidden>No articles in this category.</p>
+{% if site.posts.size == 0 %}
+  <p class="listing-empty" data-i18n="blogEmpty">No articles have been published yet.</p>
+{% endif %}

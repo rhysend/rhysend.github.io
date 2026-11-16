@@ -1,52 +1,26 @@
-<!DOCTYPE html>
-<html lang="en" class="booting">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rhysend Digital</title>
-  <meta name="description" content="">
-  <link rel="icon" href="images/rhysend-logo.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+SC:wght@400;600&family=IBM+Plex+Sans+TC:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css?v=15">
-  <noscript><style>html.booting body { visibility: visible; }</style></noscript>
-</head>
-<body data-page="solutions">
-  <a class="skip" href="#main" data-i18n="skip"></a>
-  <header class="mast">
-    <a class="brand" href="index.html">
-      <img class="logo" src="images/rhysend-logo.svg" alt="Rhysend Digital Limited, 昇韻數科有限公司" width="960" height="416">
-    </a>
-    <nav class="pages" aria-label="Sheets" data-i18n-aria="navLabel">
-      <a href="index.html" aria-current="page" data-i18n="navSolutions"></a>
-      <a href="about.html" data-i18n="navFirm"></a>
-    </nav>
-    <div class="lang" role="group" aria-label="Language" data-i18n-aria="langLabel">
-      <button type="button" data-lang="en" aria-pressed="true">EN</button>
-      <button type="button" data-lang="zh-Hant" aria-pressed="false">繁</button>
-      <button type="button" data-lang="zh-Hans" aria-pressed="false">简</button>
-    </div>
-  </header>
-  <main class="wrap" id="main">
-    <h1 data-i18n="offer"></h1>
-    <p class="lead" data-i18n="startBody"></p>
+---
+layout: default
+section: solutions
+description: "Technical support and business consulting, custom software development, and IT infrastructure and cloud management."
+---
+    <h1 data-i18n="offer">Technology support, software development and cloud management</h1>
+    <p class="lead" data-i18n="startBody">We help businesses and individuals solve technical problems and choose systems that fit how they work.</p>
     <div class="kinds">
       <section class="kind">
-        <h2 data-i18n="supportTitle"></h2>
-        <p data-i18n="supportBody"></p>
+        <h2 data-i18n="supportTitle">Technical support and business consulting</h2>
+        <p data-i18n="supportBody">Get help troubleshooting technical issues and advice on choosing technology for your business.</p>
       </section>
       <section class="kind">
-        <h2 data-i18n="devTitle"></h2>
-        <p data-i18n="devBody"></p>
+        <h2 data-i18n="devTitle">Software and systems development</h2>
+        <p data-i18n="devBody">We develop software and systems around your requirements and day-to-day workflows.</p>
       </section>
       <section class="kind">
-        <h2 data-i18n="cloudTitle"></h2>
-        <p data-i18n="cloudBody"></p>
+        <h2 data-i18n="cloudTitle">IT infrastructure and cloud management</h2>
+        <p data-i18n="cloudBody">We help set up and manage the IT infrastructure and cloud environments your systems run on.</p>
       </section>
     </div>
     <section class="block">
-      <h2 data-i18n="contact"></h2>
+      <h2 data-i18n="contact">Contact</h2>
       <ul class="facts">
         <li data-fact="email" hidden>
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M4 7l8 6 8-6"/></svg>
@@ -64,19 +38,11 @@
     </section>
     <section class="block">
       <form class="note" action="#">
-        <h2 id="send-title" data-i18n="send"></h2>
+        <h2 id="send-title" data-i18n="send">Send an enquiry</h2>
         <label class="field">
-          <textarea name="note" data-i18n-placeholder="placeholder" placeholder="" aria-labelledby="send-title"></textarea>
+          <textarea name="note" data-i18n-placeholder="placeholder" placeholder="How can we help?" aria-labelledby="send-title"></textarea>
         </label>
-        <button type="submit" data-i18n="button"></button>
+        <button type="submit" data-i18n="button">Send email</button>
         <p class="status" data-status role="status"></p>
       </form>
     </section>
-  </main>
-  <footer class="colophon">
-    <p data-i18n="back"></p>
-    <p data-i18n="rights"></p>
-  </footer>
-  <script type="module" src="js/site.js?v=16"></script>
-</body>
-</html>

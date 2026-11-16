@@ -1,0 +1,5 @@
+{%- assign type_id = include.value | default: 'others' -%}
+{%- assign category = site.data.article_types | where: 'id', type_id | first -%}
+{%- if category == nil or category.id == 'all' -%}
+  {%- assign category = site.data.article_types | where: 'id', 'others' | first -%}
+{%- endif -%}

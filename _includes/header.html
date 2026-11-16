@@ -1,0 +1,15 @@
+  <header class="mast">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img class="logo" src="{{ '/images/rhysend-logo.svg' | relative_url }}" alt="Rhysend Digital Limited, 昇韻數科有限公司" width="960" height="416">
+    </a>
+    <nav class="pages" aria-label="Pages" data-i18n-aria="navLabel">
+      {% for item in site.data.navigation %}
+        <a href="{{ item.url | relative_url }}" data-i18n="{{ item.key }}"{% if page.section == item.section %} aria-current="page"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
+    </nav>
+    <div class="lang" role="group" aria-label="Language" data-i18n-aria="langLabel">
+      <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="zh-Hant" lang="zh-Hant-HK" aria-pressed="false">繁</button>
+      <button type="button" data-lang="zh-Hans" lang="zh-Hans" aria-pressed="false">简</button>
+    </div>
+  </header>

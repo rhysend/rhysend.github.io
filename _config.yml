@@ -1,0 +1,19 @@
+title: Rhysend Digital
+permalink: /blog/:year/:month/:day/:title/
+strict_front_matter: true
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: entry, section: blog, lang: en }
+  - scope: { path: "", type: projects }
+    values: { layout: entry, section: projects, lang: en }
+exclude:
+  - .gradientdeck
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - serve.py
+  - vendor

@@ -1,0 +1,4 @@
+- { section: solutions, url: "/", key: navSolutions, label: Solutions }
+- { section: projects, url: "/projects/", key: navProjects, label: Projects }
+- { section: blog, url: "/blog/", key: navBlog, label: Blog }
+- { section: firm, url: "/about.html", key: navFirm, label: About }

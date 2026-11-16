@@ -1,0 +1,5 @@
+- { id: all, key: typeAll, label: All }
+- { id: technical, key: typeTechnical, label: Technical }
+- { id: tutorial, key: typeTutorials, label: Tutorials }
+- { id: update, key: typeUpdates, label: Updates }
+- { id: others, key: typeOthers, label: Others }

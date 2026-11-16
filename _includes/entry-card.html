@@ -1,0 +1,13 @@
+{% if include.blog %}{% include article-type.html value=include.entry.article_type %}{% endif %}
+<li{% if include.blog %} data-article-type="{{ category.id }}"{% endif %}>
+  <a class="entry-card" href="{{ include.entry.url | relative_url }}" aria-labelledby="entry-{{ include.index }}">
+    {% if include.blog %}
+      <p class="entry-meta">
+        <span data-i18n="{{ category.key }}">{{ category.label }}</span>
+        <time datetime="{{ include.entry.date | date_to_xmlschema }}">{{ include.entry.date | date: "%Y-%m-%d" }}</time>
+      </p>
+    {% endif %}
+    <h2 id="entry-{{ include.index }}" lang="{{ include.entry.lang | escape }}">{{ include.entry.title | escape }}</h2>
+    <p lang="{{ include.entry.lang | escape }}">{{ include.entry.summary | escape }}</p>
+  </a>
+</li>
